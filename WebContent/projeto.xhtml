@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+<title>Projeto WEB!</title>
+</head>
+<body>
+<f:view>
+	<h:form>
+	<h2>Faça seu cadastro!</h2>
+	<h:messages style="color:red"/>
+	<h:outputText value= "#{cadastrar.cliente.nome !=null? cadastrar.cliente : ''}"/>
+		
+		<br/>
+		<h:outputText class="text1" value="Nome: "/>
+		<h:inputText class="text1" id="nome" value="#{cadastrar.cliente.nome}"
+		required="true" requiredMessage="Nome não informado!"/>
+		
+		<br/>
+		<h:outputText class="text2" value="Sobrenome: "/>
+		<h:inputText class="text2" id="sobrenome" value="#{cadastrar.cliente.sobrenome}"
+		required="true" requiredMessage="Sobrenome não informado!"/>
+		
+		<br/>
+		<h:outputText  class="text3" value="Sexo: "/>
+		<h:selectOneMenu class="text3" id="sexo" value="#{cadastrar.cliente.sexo}"
+		required="true" requiredMessage="Selecione seu sexo!">
+		
+			<f:selectItem noSelectionOption="true" itemLabel="Selecione"/>
+			
+			<f:selectItem itemValue="M" itemLabel="Masculino"/>
+			
+			<f:selectItem itemValue="F" itemLabel="Feminino"/>
+		</h:selectOneMenu>
+		
+		<br/>
+		<h:outputText class="text4" value="Senha: "/>
+		<h:inputSecret class="text4" id="senha" value="#{cadastrar.cliente.senha}" 
+		required="true" requiredMessage="Senha não informada!" redisplay="true"
+		validatorMessage="A senha deve ter no mínimo 2 caracteres e no máximo 10!">
+		
+			<f:validateLength minimum="2" maximum="10"/>
+		</h:inputSecret>
+		
+		<br/>
+		<h:outputText class="text5" value="Email: "/>
+		<h:inputText class="text5" id="email" value="#{cadastrar.cliente.email}"
+		 required="true" validator="emailValidator" requiredMessage="Informe um email!"/>
+		
+		<br/>
+		<h:outputText class="text1" value="CPF: "/>
+		<h:inputText  value="#{cadastrar.cliente.cpf}">
+			<f:validateLength maximum="11"/>
+		</h:inputText>
+		
+		<br/>
+		<h:outputText class="text1" value="RG: "/>
+		<h:inputText  value="#{cadastrar.cliente.rg}"/>
+		
+		<br/>
+		<h:outputText class="text1" value="Telefone: "/>
+		<h:inputText value="#{cadastrar.cliente.telefone}"/>
+		
+		<br/>
+		<h:outputText class="text1" value="Data de Nascimento: "/>
+		<h:inputText  value="#{cadastrar.cliente.dataNasc}">
+			<f:convertDateTime pattern="dd/mm/yyyy"/>
+		</h:inputText>
+		
+		<br/>
+		<h:outputText class="text1" value="Estado Civil: "/>
+		<h:selectOneMenu class="text3" id="estadoC" value="#{cadastrar.cliente.estadoC}">
+		
+			<f:selectItem noSelectionOption="true" itemLabel="Selecione"/>
+			
+			<f:selectItem itemValue="S" itemLabel="Solteiro"/>
+			
+			<f:selectItem itemValue="C" itemLabel="Casado"/>
+			
+			<f:selectItem itemValue="D" itemLabel="Divorciado"/>
+			
+			<f:selectItem itemValue="V" itemLabel="Viúvo"/>
+			
+			<f:selectItem itemValue="SP" itemLabel="Separado"/>
+		</h:selectOneMenu>
+		
+		<br/>
+		<h:outputText value="CEP:  "/>
+		<h:inputText value="#{cadastrar.cliente.cep}"/>
+		
+		<br/>
+		<h:outputText class="text1" value="Endereço:  "/>
+		<h:inputText value="#{cadastrar.cliente.endereco}"/>
+		
+		<br/>
+		<h:commandButton class="button1" value="Salvar" action="#{cadastrar.exibir}"/>
+		<br/>
+
+	</h:form>
+	<h:form>
+		<h:dataTable value="#{cadastrar.lista}" var="cad">
+			<f:facet name="header">Lista de Clientes</f:facet>
+			
+					<h:column>
+							<f:facet name="header">Nome</f:facet>
+							<h:outputText value="#{cad.nome}" rendered="#{!cad.editar}"/>
+							<h:inputText value="#{cad.nome}"  rendered="#{cad.editar}"/>
+					</h:column>	
+					
+					<h:column>
+							<f:facet name="header">Sobrenome</f:facet>
+							<h:outputText value="#{cad.sobrenome}"></h:outputText>
+					</h:column>
+						
+					<h:column>	
+							<f:facet name="header">Sexo</f:facet>
+							<h:outputText value="#{cad.sexo}"></h:outputText>
+					</h:column>
+
+					<h:column>
+							<f:facet name="header">Email</f:facet>
+							<h:outputText value="#{cad.email}"></h:outputText>
+					</h:column>
+					
+					<h:column>
+							<f:facet name="header">CPF</f:facet>
+							<h:outputText value="#{cad.cpf}"></h:outputText>
+					</h:column>
+					
+					<h:column>
+							<f:facet name="header">RG</f:facet>
+							<h:outputText value="#{cad.rg}"></h:outputText>
+					</h:column>
+					
+					<h:column>
+							<f:facet name="header">Telefone</f:facet>
+							<h:outputText value="#{cad.telefone}"></h:outputText>
+					</h:column>
+					
+					<h:column>
+							<f:facet name="header">Data de Nascimento</f:facet>
+							<h:outputText value="#{cad.dataNasc}"></h:outputText>
+					</h:column>
+					
+					<h:column>
+							<f:facet name="header">Estado Civil</f:facet>
+							<h:outputText value="#{cad.estadoC}"></h:outputText>
+					</h:column>
+					
+					<h:column>
+							<f:facet name="header">CEP</f:facet>
+							<h:outputText value="#{cad.cep}"></h:outputText>
+					</h:column>
+					
+					<h:column>
+							<f:facet name="header">Endereço</f:facet>
+							<h:outputText value="#{cad.endereco}"></h:outputText>
+					</h:column>
+					
+					<h:column>
+						<h:commandButton value="Editar" action="#{cadastrar.editar}"  rendered="#{!cad.editar}"> 
+						<f:setPropertyActionListener value="#{cad}" target="#{cadastrar.cliente}"/>
+						</h:commandButton>
+					</h:column>			
+		</h:dataTable>
+			<h:commandButton value="Salvar para TXT!" action="#{cadastrar.txt}"/>
+	</h:form>
+</f:view>
+</body>
+</html>
