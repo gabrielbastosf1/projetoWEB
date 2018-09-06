@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
@@ -38,14 +39,20 @@ public class Cadastrar {
 		this.cliente = cliente;
 	}
 	
-	public Cliente exibir() {
-		System.out.println(cliente);
+	public void exibir() throws UnsupportedEncodingException, IOException {
 		if (!lista.contains(cliente)){
 			lista.add(cliente);
+			
+			//Adicionando o Cliente no TXT!
+			FileReader file = new FileReader("C:\\Users\\biels\\Desktop\\results.txt");
+			
+			try (Writer writer = new BufferedWriter(new OutputStreamWriter(
+		              new FileOutputStream("C:\\Users\\biels\\Desktop\\results.txt"), "utf-8"))) {
+		   writer.write(""+cliente+"");
+			}
 		}	
 		cliente.setEditar(false);
 		cliente = new Cliente();
-		return cliente;
 	}
 	
 	public void editar() {
@@ -53,11 +60,6 @@ public class Cadastrar {
 	}
 	
 	public void txt() throws IOException {
-		File file = new File("C:\\Users\\biels\\Desktop\\results.txt");
-		
-		try (Writer writer = new BufferedWriter(new OutputStreamWriter(
-	              new FileOutputStream("C:\\Users\\biels\\Desktop\\results.txt"), "utf-8"))) {
-	   writer.write("Oi");
-	}
+	
 	}
 }

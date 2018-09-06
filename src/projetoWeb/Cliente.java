@@ -3,7 +3,7 @@ package projetoWeb;
 import java.util.Date;
 
 public class Cliente {
-	private int id;
+	private Integer id;
 	private String nome;
 	private String sobrenome;
 	private String senha;
@@ -81,12 +81,6 @@ public class Cliente {
 		this.sexo = sexo;
 	}
 	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
 	public String getNome() {
 		return nome;
 	}
@@ -101,6 +95,12 @@ public class Cliente {
 	}
 	public String getSenha() {
 		return senha;
+	}
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	public void setSenha(String senha) {
 		this.senha = senha;

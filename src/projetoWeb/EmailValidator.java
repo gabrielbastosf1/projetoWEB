@@ -14,8 +14,6 @@ public class EmailValidator implements Validator {
 		String email =  value.toString();
 		if(email.indexOf("@") == -1 || !(email.endsWith("@hotmail.com") || (email.endsWith("gmail.com")))) {
 			throw new ValidatorException(new FacesMessage("Email: "+email+" não é um email válido!"));
-		}
-		
+		}	
 	}
-
 }
