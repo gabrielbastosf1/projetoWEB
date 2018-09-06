@@ -67,7 +67,7 @@
 		<br/>
 		<h:outputText class="text1" value="Data de Nascimento: "/>
 		<h:inputText  value="#{cadastrar.cliente.dataNasc}">
-			<f:convertDateTime pattern="dd/mm/yyyy"/>
+			<f:convertDateTime pattern="dd-mm-yyyy"/>
 		</h:inputText>
 		
 		<br/>
@@ -142,7 +142,9 @@
 					
 					<h:column>
 							<f:facet name="header">Data de Nascimento</f:facet>
-							<h:outputText value="#{cad.dataNasc}"></h:outputText>
+							<h:outputText value="#{cad.dataNasc}">
+								<f:convertDateTime pattern="dd-mm-yyyy"/>
+							</h:outputText>
 					</h:column>
 					
 					<h:column>

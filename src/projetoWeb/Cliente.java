@@ -70,7 +70,9 @@ public class Cliente {
 	@Override
 	public String toString() {
 		return "Cliente [id=" + id + ", nome=" + nome + ", sobrenome=" + sobrenome + ", senha=" + senha + ", sexo="
-				+ sexo + ", email=" + email + ", editar=" + editar + "]";
+				+ sexo + ", email=" + email + ", editar=" + editar + ", cpf=" + cpf + ", rg=" + rg + ", telefone="
+				+ telefone + ", dataNasc=" + dataNasc + ", estadoC=" + estadoC + ", cep=" + cep + ", endereco="
+				+ endereco + "]";
 	}
 	public String getSexo() {
 		return sexo;

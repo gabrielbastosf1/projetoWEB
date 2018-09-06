@@ -9,8 +9,6 @@ import javax.faces.validator.ValidatorException;
 
 @FacesValidator("emailValidator")
 public class EmailValidator implements Validator {
-	
-	
 	@Override
 	public void validate(FacesContext context, UIComponent component, Object value) throws ValidatorException {
 		String email =  value.toString();
