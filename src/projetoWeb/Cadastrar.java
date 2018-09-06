@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
@@ -42,14 +43,14 @@ public class Cadastrar {
 	public void exibir() throws UnsupportedEncodingException, IOException {
 		if (!lista.contains(cliente)){
 			lista.add(cliente);
-			
-			//Adicionando o Cliente no TXT!
-			FileReader file = new FileReader("C:\\Users\\biels\\Desktop\\results.txt");
-			
-			try (Writer writer = new BufferedWriter(new OutputStreamWriter(
-		              new FileOutputStream("C:\\Users\\biels\\Desktop\\results.txt"), "utf-8"))) {
-		   writer.write(""+cliente+"");
-			}
+			  String local = "C:\\Users\\biels\\Desktop\\results.txt";
+	            try (PrintWriter arquivo = new PrintWriter(new FileWriter(local, true))) {
+	                arquivo.println();
+	                arquivo.println("id="+cliente.getId());
+	                arquivo.println("Nome="+cliente.getNome());
+	                arquivo.println("Sobrenome="+cliente.getSobrenome());
+	                arquivo.println("E-mail="+cliente.getEmail());
+	            }
 		}	
 		cliente.setEditar(false);
 		cliente = new Cliente();
@@ -57,9 +58,5 @@ public class Cadastrar {
 	
 	public void editar() {
 		cliente.setEditar(true);	
-	}
-	
-	public void txt() throws IOException {
-	
 	}
 }

@@ -113,49 +113,41 @@
 					<h:column>
 							<f:facet name="header">ID</f:facet>
 							<h:outputText value="#{cad.id}" rendered="#{!cad.editar}"/>
-							<h:inputText value="#{cad.id}"  rendered="#{cad.editar}"/>
 					</h:column>	
 			
 					<h:column>
 							<f:facet name="header">Nome</f:facet>
 							<h:outputText value="#{cad.nome}" rendered="#{!cad.editar}"/>
-							<h:inputText value="#{cad.nome}"  rendered="#{cad.editar}"/>
 					</h:column>	
 					
 					<h:column>
 							<f:facet name="header">Sobrenome</f:facet>
 							<h:outputText value="#{cad.sobrenome}"></h:outputText>
-							<h:inputText value="#{cad.sobrenome}"  rendered="#{cad.editar}"/>
 					</h:column>
 						
 					<h:column>	
 							<f:facet name="header">Sexo</f:facet>
 							<h:outputText value="#{cad.sexo}"></h:outputText>
-							<h:inputText value="#{cad.sexo}"  rendered="#{cad.editar}"/>
 					</h:column>
 
 					<h:column>
 							<f:facet name="header">Email</f:facet>
 							<h:outputText value="#{cad.email}"></h:outputText>
-							<h:inputText value="#{cad.email}"  rendered="#{cad.editar}"/>
 					</h:column>
 					
 					<h:column>
 							<f:facet name="header">CPF</f:facet>
 							<h:outputText value="#{cad.cpf}"></h:outputText>
-							<h:inputText value="#{cad.cpf}"  rendered="#{cad.editar}"/>
 					</h:column>
 					
 					<h:column>
 							<f:facet name="header">RG</f:facet>
 							<h:outputText value="#{cad.rg}"></h:outputText>
-							<h:inputText value="#{cad.rg}" rendered="#{cad.editar}"/>
 					</h:column>
 					
 					<h:column>
 							<f:facet name="header">Telefone</f:facet>
 							<h:outputText value="#{cad.telefone}"></h:outputText>
-							<h:inputText value="#{cad.telefone}"  rendered="#{cad.editar}"/>
 					</h:column>
 					
 					<h:column>
@@ -163,25 +155,21 @@
 							<h:outputText value="#{cad.dataNasc}">
 								<f:convertDateTime pattern="dd-mm-yyyy"/>
 							</h:outputText>
-							<h:inputText value="#{cad.dataNasc}"  rendered="#{cad.editar}"/>
 					</h:column>
 					
 					<h:column>
 							<f:facet name="header">Estado Civil</f:facet>
 							<h:outputText value="#{cad.estadoC}"></h:outputText>
-							<h:inputText value="#{cad.estadoC}"  rendered="#{cad.editar}"/>
 					</h:column>
 					
 					<h:column>
 							<f:facet name="header">CEP</f:facet>
 							<h:outputText value="#{cad.cep}"></h:outputText>
-							<h:inputText value="#{cad.cep}"  rendered="#{cad.editar}"/>
 					</h:column>
 					
 					<h:column>
 							<f:facet name="header">Endereço</f:facet>
 							<h:outputText value="#{cad.endereco}"></h:outputText>
-							<h:inputText value="#{cad.endereco}"  rendered="#{cad.editar}"/>
 					</h:column>
 					
 					<h:column>
